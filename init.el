@@ -13,7 +13,7 @@
 (add-to-list 'default-frame-alist '(background-color . "black"))
 (set-cursor-color "white")
 
-(set-face-attribute 'default nil :height 80)
+(set-face-attribute 'default nil :height 100)
 
 ; Enable highlighting of the cursor line 
 (global-hl-line-mode 1)
@@ -155,17 +155,24 @@
 (add-hook 'c-mode-hook
     (lambda () (modify-syntax-entry ?_ "w")))
 
-(when (require 'gtags-mode nil 't)
-    (setq c++-mode-hook
-        '(lambda ()
-           (gtags-mode 1)
-    ))
-)
+(setq c++-mode-hook
+    '(lambda ()
+       (gtags-mode 1)
+))
+
+; (when (require 'gtags-mode nil 't)
+;     (setq c++-mode-hook
+;         '(lambda ()
+;            (gtags-mode 1)
+;     ))
+; )
 
 (setq gtags-mode-hook
     '(lambda ()
         (define-key gtags-mode-map (kbd "C-x C-g") 'gtags-find-tag)
         (define-key gtags-mode-map (kbd "C-x C-o") 'gtags-find-rtag)
+        (define-key gtags-mode-map (kbd "C-x C-v") 'gtags-find-file)
+        (define-key gtags-mode-map (kbd "C-x C-t") 'gtags-find-pattern)
         (define-key gtags-mode-map (kbd "C-x C-;") 'gtags-pop-stack)
         (define-key gtags-select-mode-map (kbd "C-x C-;") 'gtags-pop-stack)
 ))
