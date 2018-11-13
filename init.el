@@ -31,6 +31,11 @@
 ; disable auto save
 (setq auto-save-default nil)
 
+; disable shift-selection
+; If you hold down the shift key while typing a cursor
+; motion command, this sets the mark before moving point.
+(setq shift-select-mode nil)
+
 (defun next-word (&optional n)
   "Move point forward n words and place cursor at the beginning."
   (interactive "p")
@@ -177,7 +182,6 @@
         (define-key gtags-select-mode-map (kbd "C-x C-;") 'gtags-pop-stack)
 ))
 
-
 (setq c-default-style "bsd"
       c-basic-offset 4)
   
@@ -196,6 +200,11 @@
     ;; Your init file should contain only one such instance.
     ;; If there is more than one, they won't work right.
     '(default ((t (:family "Lucida Console" :foundry "outline" :slant normal :weight normal :height 90 :width normal)))))
+)
+
+(when (eq system-type 'darwin)
+    (set-face-attribute 'default t :font "lucidasanstypewriter-11" )
+    (tool-bar-mode -1)
 )
 
 ; Answer "y" instead "yes"
