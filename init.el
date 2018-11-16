@@ -16,12 +16,26 @@
 (set-face-attribute 'default nil :height 100)
 
 ; Enable highlighting of the cursor line 
-(global-hl-line-mode 1)
+; (global-hl-line-mode 1)
 
 ; Color of cursor line highlight is dark grey, or purple
-(if (display-graphic-p)
-    (set-face-background 'hl-line "#161616")
-  (set-face-background 'hl-line "purple"))
+; (if (display-graphic-p)
+;     (set-face-background 'hl-line "#161616")
+;   (set-face-background 'hl-line "purple"))
+
+(global-hl-line-mode 1)
+
+(defun new-frame-setup (&optional frame)
+  (if (display-graphic-p)
+      ; Enable highlighting of the cursor line
+      (set-face-background 'hl-line "#161616")
+    ; Not a window system
+    (set-face-background 'hl-line "purple")))
+
+; Run for already exisiting frames
+(mapc 'new-frame-setup(frame-list))
+; Run when a new frame is created
+(add-hook 'after-make-frame-functions 'new-frame-setup)
 
 (set-face-foreground 'mode-line "white")
 (set-face-background 'mode-line "blue")
