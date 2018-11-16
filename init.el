@@ -218,7 +218,6 @@
 
 (when (eq system-type 'darwin)
     (set-face-attribute 'default t :font "lucidasanstypewriter-11" )
-    (tool-bar-mode -1)
 )
 
 ; Answer "y" instead "yes"
