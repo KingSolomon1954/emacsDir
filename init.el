@@ -75,6 +75,12 @@
 ; No tabs please
 (setq-default indent-tabs-mode nil)
 
+; Type opening brace and closing brace appears too
+(electric-pair-mode t)
+
+; Highlight matching parens when curson is behind one of them
+(show-paren-mode 1)
+
 (defun undent-rigidly (beg end)
   "Undents region to the left by 1"
   (interactive "r")
