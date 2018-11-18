@@ -1,0 +1,63 @@
+https://github.com/daedreth/UncleDavesEmacs/blob/master/config.org
+
+emacs investigate ibuffer, instead of switch buffer
+
+emacs package avy - for switching buffers
+
+emacs investigate switch-window
+
+(use-package switch-window
+  :ensure t
+  :config
+    (setq switch-window-input-style 'minibuffer)
+    (setq switch-window-increase 4)
+    (setq switch-window-threshold 2)
+    (setq switch-window-shortcut-style 'qwerty)
+    (setq switch-window-qwerty-shortcuts
+        '("a" "s" "d" "f" "j" "k" "l" "i" "o"))
+  :bind
+    ([remap other-window] . switch-window))
+
+emacs investigate packages helm and/or ido
+
+emacs investigate linum-relative for programming
+
+(use-package linum-relative
+  :ensure t
+  :config
+    (setq linum-relative-current-symbol "")
+    (add-hook 'prog-mode-hook 'linum-relative-mode))
+
+
+Try this:
+(when window-system (add-hook 'prog-mode-hook 'hl-line-mode))
+hl-line-mode -1
+
+
+While changing buffers or workspaces, the first thing you do is look for
+your cursor. Unless you know its position, you can not move it
+efficiently. Every time you change buffers, the current position of your
+cursor will be briefly highlighted now.
+
+(use-package beacon
+  :ensure t
+  :config
+    (beacon-mode 1))
+
+
+popup-kill-ring
+
+Out of all the packages I tried out, this one, being the simplest,
+appealed to me most. With a simple M-y you can now browse your kill-ring
+like browsing autocompletion items. C-n and C-p totally work for this.
+
+(use-package popup-kill-ring
+  :ensure t
+  :bind ("M-y" . popup-kill-ring))
+
+
+(use-package company-shell
+  :init
+  (add-to-list 'company-backends 'company-shell))
+
+(provide 'init-shell-scripts)
