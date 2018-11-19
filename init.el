@@ -228,3 +228,24 @@
 
 ; Answer "y" instead "yes"
 (fset 'yes-or-no-p 'y-or-n-p)
+
+;; Setup packages
+
+;; Peek at https://github.com/yehoodig/dot-files/blob/master/emacs/.emacs.d/init.el
+
+(when (>= emacs-major-version 24)
+    (require 'package)
+    (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+    (add-to-list 'package-archives '("marmalade"    . "http://marmalade-repo.org/packages/") t))
+
+(setq package-enable-at-startup nil)
+(package-initialize)
+
+;; Bootstrap "use-package"
+;; Docs on use-package here: https://github.com/jwiegley/use-package
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(eval-when-compile
+    (require 'use-package))
