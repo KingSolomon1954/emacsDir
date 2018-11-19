@@ -16,21 +16,18 @@
 (set-face-attribute 'default nil :height 100)
 
 ; Enable highlighting of the cursor line 
-; (global-hl-line-mode 1)
-
-; Color of cursor line highlight is dark grey, or purple
-; (if (display-graphic-p)
-;     (set-face-background 'hl-line "#161616")
-;   (set-face-background 'hl-line "purple"))
-
 (global-hl-line-mode 1)
+(set-face-background 'hl-line "#161616")
 
-(defun new-frame-setup (&optional frame)
-  (if (display-graphic-p)
+; (defun new-frame-setup (&optional frame)
+(defun new-frame-setup (frame)
+  (if (display-graphic-p frame)
       ; Enable highlighting of the cursor line
       (set-face-background 'hl-line "#161616")
-    ; Not a window system
+      ; (set-face-background 'hl-line "purple")
+    ; else not a window system
     (set-face-background 'hl-line "purple")))
+    ; (global-hl-line-mode -1)))
 
 ; Run for already exisiting frames
 (mapc 'new-frame-setup(frame-list))
@@ -230,11 +227,11 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; Setup packages
-
 ;; Peek at https://github.com/yehoodig/dot-files/blob/master/emacs/.emacs.d/init.el
 
+(require 'package)
+
 (when (>= emacs-major-version 24)
-    (require 'package)
     (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
     (add-to-list 'package-archives '("marmalade"    . "http://marmalade-repo.org/packages/") t))
 
