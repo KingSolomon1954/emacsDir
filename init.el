@@ -1,32 +1,36 @@
 (setq inhibit-startup-screen t)
-(setq-default major-mode 'text-mode)
-(setq-default fill-column 72)
-(setq-default truncate-lines 1)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
 (set-scroll-bar-mode 'right)
 (scroll-bar-mode -1)
 (setq scroll-error-top-bottom t)
 (setq scroll-step 1)
-(tool-bar-mode -1)
+
+(setq-default major-mode 'text-mode)
+(setq-default fill-column 72)
+(setq-default truncate-lines 1)
 (setq ring-bell-function 'ignore)
+
 (add-to-list 'initial-frame-alist '(fullscreen . fullheight))
 (add-to-list 'default-frame-alist '(foreground-color . "SpringGreen4"))
 (add-to-list 'default-frame-alist '(background-color . "black"))
-(set-cursor-color "white")
-
 (set-face-attribute 'default nil :height 100)
+(set-cursor-color "white")
 
 ; Enable highlighting of the cursor line 
 (global-hl-line-mode 1)
 (set-face-background 'hl-line "#161616")
 
 ; (defun new-frame-setup (&optional frame)
-(defun new-frame-setup (frame)
+(defun new-frame-setup (&optional frame)
   (if (display-graphic-p frame)
       ; Enable highlighting of the cursor line
+      ; (hl-line-mode 1)
       (set-face-background 'hl-line "#161616")
       ; (set-face-background 'hl-line "purple")
-    ; else not a window system
-    (set-face-background 'hl-line "purple")))
+    ; except in a terminal window
+    ; (hl-line-mode -1))) but this does nothing
+    (set-face-background 'hl-line "white")))
     ; (global-hl-line-mode -1)))
 
 ; Run for already exisiting frames
@@ -73,7 +77,7 @@
 (setq-default indent-tabs-mode nil)
 
 ; Type opening brace and closing brace appears too
-(electric-pair-mode t)
+; (electric-pair-mode t)
 
 ; Highlight matching parens when curson is behind one of them
 (show-paren-mode 1)
