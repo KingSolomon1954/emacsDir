@@ -12,6 +12,7 @@
 (setq ring-bell-function 'ignore)
 
 (add-to-list 'initial-frame-alist '(fullscreen . fullheight))
+(add-to-list 'default-frame-alist '(fullscreen . fullheight))
 (add-to-list 'default-frame-alist '(foreground-color . "SpringGreen4"))
 (add-to-list 'default-frame-alist '(background-color . "black"))
 (set-face-attribute 'default nil :height 100)
