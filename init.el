@@ -16,7 +16,7 @@
 (add-to-list 'default-frame-alist '(fullscreen . fullheight))
 (add-to-list 'default-frame-alist '(foreground-color . "SpringGreen4"))
 (add-to-list 'default-frame-alist '(background-color . "black"))
-(set-face-attribute 'default nil :height 100)
+(set-face-attribute 'default nil :height 110)
 (set-cursor-color "white")
 
 ; Enable highlighting of the cursor line 
@@ -225,9 +225,9 @@
     '(default ((t (:family "Lucida Console" :foundry "outline" :slant normal :weight normal :height 90 :width normal)))))
 )
 
-(when (eq system-type 'darwin)
-    (set-face-attribute 'default t :font "lucidasanstypewriter-11" )
-)
+; (when (eq system-type 'darwin)
+;     (set-face-attribute 'default t :font "lucidasanstypewriter-11" )
+; )
 
 ; Answer "y" instead "yes"
 (fset 'yes-or-no-p 'y-or-n-p)
