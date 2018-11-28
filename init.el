@@ -16,7 +16,18 @@
 (add-to-list 'default-frame-alist '(fullscreen . fullheight))
 (add-to-list 'default-frame-alist '(foreground-color . "SpringGreen4"))
 (add-to-list 'default-frame-alist '(background-color . "black"))
-(set-face-attribute 'default nil :height 110)
+
+(if (eq system-type 'darwin)
+    (set-face-attribute 'default nil :height 110))
+
+(if (eq system-type 'gnu/linux)
+    (set-face-attribute 'default nil :height 100))
+
+(if (eq system-type 'windows-nt)
+    (set-face-attribute 'default nil :height 90))
+
+(add-to-list 'default-frame-alist '(width  . 80))
+
 (set-cursor-color "white")
 
 ; Enable highlighting of the cursor line 
