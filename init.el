@@ -37,3 +37,4 @@
 (require 'init-multicursors)
 (require 'init-keys)
 (require 'init-c)
+(require 'init-git)
