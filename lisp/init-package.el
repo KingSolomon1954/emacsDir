@@ -14,13 +14,12 @@
 (package-initialize)
 
 ; Should set before loading `use-package'
-(setq use-package-always-ensure t)
+; (setq use-package-always-ensure t)
 (setq use-package-always-defer t)
 (setq use-package-expand-minimally t)
 (setq use-package-enable-imenu-support t)
 
 ; Bootstrap "use-package"
-; See docs on use-package here: https://github.com/jwiegley/use-package
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
@@ -36,6 +35,7 @@
 
 ; ------------------------------------------------------
 ;
+; See docs on use-package here: https://github.com/jwiegley/use-package
 ; Usage from https://github.com/jwiegley/use-package
 ;
 ; ------------------------------------------------------
