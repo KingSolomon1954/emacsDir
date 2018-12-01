@@ -4,19 +4,17 @@
 ;
 ; ------------------------------------------------------
 
-(setq c-default-style "bsd"
-      c-basic-offset 4)
-
-; Make the _ not a word separator.
-(add-hook 'c++-mode-hook
-    (lambda () (modify-syntax-entry ?_ "w")))
-(add-hook 'c-mode-hook
-    (lambda () (modify-syntax-entry ?_ "w")))
+(use-package cc-mode
+  :ensure nil
+  :hook (c-mode-common . (lambda ()
+                           (c-set-style "bsd")
+                           (modify-syntax-entry ?_ "w")
+                           (setq c-basic-offset 4))))
 
 ; init runs before package is loaded
 ; config runs after package is loaded
 (use-package gtags
-  :ensure t
+  :ensure nil
   :hook ((c++-mode . gtags-mode)
          (c-mode   . gtags-mode))
   :bind (:map gtags-mode-map
