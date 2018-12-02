@@ -26,6 +26,12 @@
         (kill-region p (point)))
     (kill-word 1)))
 
+(defun my-kill-line-backwards ()
+  (interactive)
+  (if (looking-back "\n" 1)
+      (join-line)
+    (kill-line 0)))
+
 (defun undent-rigidly (beg end)
   "Undents region to the left by 1"
   (interactive "r")
@@ -64,22 +70,33 @@
   (interactive)
   (set-buffer-file-coding-system 'undecided-dos nil))
 
+;; Takes a multi-line paragraph and makes it into a single line of text
+(defun unfill-paragraph ()
+  (interactive)
+  (let ((fill-column (point-max)))
+    (fill-paragraph nil)))
+
+(defun lookup-word (word)
+  (interactive (list (thing-at-point 'word)))
+  (browse-url (format "http://www.freethesaurus.com/%s" word)))
+
+; This opens URL in browser/tab
+;  (browse-url (format "http://www.thesaurus.com/browse/%s" word)))
+;  (browse-url (format "http://en.wiktionary.org/wiki/%s" word)))
+
+; This opens a new buffer containing contents of URL
+; Borrowed from package "crux"
+(defun crux-view-url ()
+  "Open a new buffer containing the contents of URL."
+  (interactive)
+  (let* ((default (thing-at-point-url-at-point))
+         (url (read-from-minibuffer "URL: " default)))
+    (switch-to-buffer (url-retrieve-synchronously url))
+    (rename-buffer url t)
+    (goto-char (point-min))
+    (re-search-forward "^$")
+    (delete-region (point-min) (point))
+    (delete-blank-lines)
+    (set-auto-mode)))
+
 (provide 'init-funcs)
-
-; Increase selected region by semantic units
-; (use-package expand-region
-;   :bind ("C-=" . er/expand-region))
-
-; Multiple cursors
-; (use-package multiple-cursors
-;   :bind (("C-S-c C-S-c"   . mc/edit-lines)
-;          ("C->"           . mc/mark-next-like-this)
-;          ("C-<"           . mc/mark-previous-like-this)
-;          ("C-c C-<"       . mc/mark-all-like-this)
-;          ("C-M->"         . mc/skip-to-next-like-this)
-;          ("C-M-<"         . mc/skip-to-previous-like-this)
-;          ("s-<mouse-1>"   . mc/add-cursor-on-click)
-;          ("C-S-<mouse-1>" . mc/add-cursor-on-click)
-;          :map mc/keymap
-; ("C-|" . mc/vertical-align-with-space)))
-

@@ -34,6 +34,7 @@
 (add-to-list 'default-frame-alist '(background-color . "black"))
 
 (set-cursor-color "white")
+(blink-cursor-mode 0)
 
 ; Enable highlighting of the cursor line 
 (global-hl-line-mode 1)
@@ -58,5 +59,19 @@
 
 (set-face-foreground 'mode-line "white")
 (set-face-background 'mode-line "blue")
+
+;; mode line settings
+(line-number-mode t)
+(column-number-mode t)
+(size-indication-mode t)
+
+(when (equal system-type 'windows-nt)
+    (custom-set-faces
+    ;; custom-set-faces was added by Custom.
+    ;; If you edit it by hand, you could mess it up, so be careful.
+    ;; Your init file should contain only one such instance.
+    ;; If there is more than one, they won't work right.
+    '(default ((t (:family "Lucida Console" :foundry "outline" :slant normal :weight normal :height 90 :width normal)))))
+)
 
 (provide 'init-ui)

@@ -9,7 +9,8 @@
   :hook (c-mode-common . (lambda ()
                            (c-set-style "bsd")
                            (modify-syntax-entry ?_ "w")
-                           (setq c-basic-offset 4))))
+                           (setq c-basic-offset 4)
+                           (abbrev-mode -1))))
 
 ; init runs before package is loaded
 ; config runs after package is loaded
