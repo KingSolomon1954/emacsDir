@@ -11,7 +11,8 @@
 (set-scroll-bar-mode 'right)
 (scroll-bar-mode -1)
 (setq scroll-error-top-bottom t)
-(setq scroll-step 1)
+(setq scroll-step 0)
+(setq scroll-conservatively 100)
 
 (setq-default major-mode 'text-mode)
 (setq-default fill-column 72)
