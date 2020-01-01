@@ -38,3 +38,4 @@
 (require 'init-keys)
 (require 'init-c)
 (require 'init-git)
+(require 'init-open)
