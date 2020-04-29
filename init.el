@@ -39,3 +39,4 @@
 (require 'init-c)
 (require 'init-git)
 (require 'init-open)
+(require 'init-json)

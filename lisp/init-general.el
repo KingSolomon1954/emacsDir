@@ -41,18 +41,4 @@
 ; (use-package rainbow-delimiters
 ;   :ensure t)
 
-; Supports normal markdown and GFM (Github Flavored Markdown).
-(use-package markdown-mode
-  :ensure t
-  :mode (("\\.md\\'"       . gfm-mode)
-         ("\\.markdown\\'" . gfm-mode))
-  :config
-  (setq markdown-fontify-code-blocks-natively t))
-
-(use-package flycheck
-  :ensure t
-  :config
-  (add-hook 'after-init-hook #'global-flycheck-mode))
-
 (provide 'init-general)
-
