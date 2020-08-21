@@ -31,7 +31,7 @@
 ; (add-to-list 'default-frame-alist '(width  . 80))
 (add-to-list 'initial-frame-alist '(fullscreen . fullheight))
 (add-to-list 'default-frame-alist '(fullscreen . fullheight))
-(add-to-list 'default-frame-alist '(foreground-color . "SpringGreen4"))
+(add-to-list 'default-frame-alist '(foreground-color . "#229977"))
 (add-to-list 'default-frame-alist '(background-color . "black"))
 
 (set-cursor-color "white")
@@ -39,14 +39,14 @@
 
 ; Enable highlighting of the cursor line 
 (global-hl-line-mode 1)
-(set-face-background 'hl-line "#161616")
+(set-face-background 'hl-line "#092920")
 
 ; (defun new-frame-setup (&optional frame)
 (defun new-frame-setup (&optional frame)
   (if (display-graphic-p frame)
       ; Enable highlighting of the cursor line
       ; (hl-line-mode 1)
-      (set-face-background 'hl-line "#161616")
+      (set-face-background 'hl-line "#092920")
       ; (set-face-background 'hl-line "purple")
     ; except in a terminal window
     ; (hl-line-mode -1))) but this does nothing
