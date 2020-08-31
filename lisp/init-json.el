@@ -20,6 +20,11 @@
   :ensure t
   :mode (("\\.yml\\'"       . yaml-mode)))
 
+; asciidoc mode
+(use-package adoc-mode
+  :ensure t
+  :mode (("\\.adoc\\'"      . adoc-mode)))
+
 (use-package flycheck
   :ensure t
   :config
