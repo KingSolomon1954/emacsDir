@@ -7,13 +7,15 @@
 (require 'package)
 
 (when (>= emacs-major-version 24)
-    (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t))
-
+  (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
+  )
 
 ;    (add-to-list 'package-archives '("marmalade"    . "http://marmalade-repo.org/packages/") t))
 
 (setq package-enable-at-startup nil)
 (package-initialize)
+
+; (package-refresh-contents)
 
 ; Should set before loading `use-package'
 ; (setq use-package-always-ensure t)

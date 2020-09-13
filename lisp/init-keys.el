@@ -24,7 +24,8 @@
 (global-set-key (kbd "C-x f")         'query-replace)
 (global-set-key (kbd "C-x x")         'execute-extended-command)
 (global-set-key (kbd "C-x g")         'goto-line)
-(global-set-key (kbd "C-x C-g")       'find-tag)
+(global-set-key (kbd "C-x C-g")       'xref-find-definitions)
+(global-set-key (kbd "C-x C-j")       'xref-pop-marker-stack)
 (global-set-key (kbd "C-M-,")         'pop-tag-mark)
 (global-set-key (kbd "C-x q")         'quoted-insert)
 (global-set-key (kbd "C-x C-b")       'ibuffer)
@@ -42,6 +43,9 @@
 (global-set-key (kbd "M-r")           'reread-buffer-no-confirm)
 (global-set-key (kbd "C-a")           'back-to-indentation-or-beginning)
 (global-set-key (kbd "C-<backspace>") 'my-kill-line-backwards)
+(global-set-key (kbd "C-x r q")       'copy-rectangle-as-kill)
+(global-set-key (kbd "C-x Z")         'repeat-complex-command)
+(global-set-key (kbd "C-'")           'comment-dwim)
 
 ; Emacs version 24 and later have scroll-down-command
 (if (fboundp 'scroll-down-command)
@@ -71,5 +75,18 @@
 (define-key isearch-mode-map (kbd "C-n") 'isearch-ring-advance)
 (define-key isearch-mode-map (kbd "C-h") 'exit-isearch-backward-word)
 (define-key isearch-mode-map (kbd "C-j") 'exit-isearch-backward-char)
+
+(progn
+  (require 'dired )
+  (define-key  dired-mode-map (kbd "C-t") 'next-buffer)
+  (define-key  dired-mode-map (kbd "C-o") 'set-mark-command))
+
+(progn
+  (require 'wdired )
+  (define-key wdired-mode-map (kbd "C-o") 'set-mark-command))
+
+(progn
+  (require 'ibuffer )
+  (define-key ibuffer-mode-map (kbd "C-t") 'next-buffer))
 
 (provide 'init-keys)

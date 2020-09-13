@@ -19,9 +19,12 @@
 ; Load path
 ; Optimize: Place "lisp"" at the head to reduce the startup time.
 (defun update-load-path (&rest _)
-  "Update `load-path'."
-  (push (expand-file-name "lisp" user-emacs-directory) load-path))
-(advice-add #'package-initialize :after #'update-load-path)
+   "Update `load-path'."
+   (push (expand-file-name "lisp" user-emacs-directory) load-path))
+
+; (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
+; (advice-add #'package-initialize :after #'update-load-path)
 
 (update-load-path)
 

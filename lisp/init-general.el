@@ -33,6 +33,9 @@
 ; Seems this is on by default. Don't want it.
 (setq-default abbrev-mode nil)
 
+; Always prompt for tag/identifier to lookup
+(setq xref-prompt-for-identifier t)
+
 ; Each successive level of parens is highlighted a different color.
 ;
 ; For me, not enough color contrast on parens to make this worthwhile.
