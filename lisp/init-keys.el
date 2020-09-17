@@ -35,6 +35,7 @@
 (global-set-key (kbd "S-C-b")         '(lambda () (interactive) (other-frame -1)))
 (global-set-key (kbd "C-+")           'text-scale-increase)
 (global-set-key (kbd "C--")           'text-scale-decrease)
+(global-set-key (kbd "M-y")           'clipboard-yank)
 (global-set-key (kbd "S-C-y")         'yank-pop)
 (global-set-key (kbd "S-C-v")         'end-of-defun)
 (global-set-key (kbd "S-C-u")         'beginning-of-defun)
