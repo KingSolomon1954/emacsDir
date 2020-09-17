@@ -25,6 +25,11 @@
   :ensure t
   :mode (("\\.adoc\\'"      . adoc-mode)))
 
+; LUA mode
+(use-package lua-mode
+  :ensure t
+  :mode (("\\.lua\\'"      . lua-mode)))
+
 (use-package flycheck
   :ensure t
   :config
